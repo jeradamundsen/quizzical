@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react" 
+import Split from "react-split"
+import Main from "./components/Main" 
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App(){
+  const [ questions, setQuestions ] = React.useState(0)
+
+  React.useEffect(()=>{
+    // https://opentdb.com/api.php?amount=5&difficulty=medium&type=multiple
+    console.log("effect ran")
+  })
+  return(
+   <div>
+     {
+      questions.length > 0 ?
+     <Main/>
+     :
+     <div>
+       <h2>Quizzical</h2>
+       <p>Some description if needed</p>
+       <button>Start quiz</button>
+     </div>
+    } 
+   </div>
+  )
 }
-
-export default App;
