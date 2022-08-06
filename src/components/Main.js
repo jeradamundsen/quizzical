@@ -1,7 +1,11 @@
 import React from "react" 
 
-export default function Main(){
+export default function Main(props){
   return (
-    <div>main</div>
+    <div>
+      <div>{props.question}</div>
+      <div>{props.incorrectAnswers}</div>
+      <div>{props.correctAnswer}</div>
+    </div>
   )
 }
