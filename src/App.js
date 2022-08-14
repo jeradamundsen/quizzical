@@ -1,5 +1,6 @@
 import React, { Component } from "react" 
 import Question from "./components/Question" 
+import "./style.css"
 
 export default function App(){
 const [ questionsData, setQuestionsData ] = React.useState([])
@@ -18,10 +19,10 @@ function newQuestionSet(){
 
 console.log(count)
 console.log(questionsData)
-  
+
   
   return(
-   <div>
+   <div className="container">
      {
       count > 0 ?
       
@@ -30,7 +31,7 @@ console.log(questionsData)
      <div>
        <h2>Quizzical</h2>
        <p>Some description if needed</p>
-       <button onClick={()=>newQuestionSet()}>Start quiz</button>
+       <button onClick={()=>newQuestionSet()} >Start quiz</button>
      </div>
     } 
    </div>
