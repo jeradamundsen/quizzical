@@ -1,32 +1,30 @@
 import React, { Component } from "react" 
-import Question from "./components/Question" 
+import QuestionCard from "./components/QuestionCard" 
 import "./style.css"
 
 export default function App(){
-const [ questionsData, setQuestionsData ] = React.useState([])
-const [ count, setCount ] = React.useState(0)
+const [ questionCardQuestions, setQuestionCardQuestions ] = React.useState([])
+const [ show, setShow ] = React.useState(false)
+
 
 React.useEffect(()=>{
   fetch( "https://opentdb.com/api.php?amount=5&difficulty=medium&type=multiple")
    .then(res => res.json())
-   .then( data => setQuestionsData(data.results))
-},[count])
- 
+   .then( data => setQuestionCardQuestions(prevData=>([...prevData, ...data.results])))
+},[show])
+
+
+
 function newQuestionSet(){
- return setCount( prevCount=>prevCount +1)
-
+ return setShow(prevShow => !show)
  } 
-
-console.log(count)
-console.log(questionsData)
-
-  
+ 
   return(
    <div className="container">
      {
-      count > 0 ?
+      show ?
       
-     <Question questionsData={questionsData}/>
+     <QuestionCard questionsData={questionCardQuestions} />
      :
      <div>
        <h2>Quizzical</h2>

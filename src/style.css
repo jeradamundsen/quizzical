@@ -7,19 +7,28 @@ body {
   margin: 0;
 
 }
-.container {
- 
-  
-  }
+
 .questions-list{
   display: flex;
   min-height: 100vh;
   flex-direction: column;
   margin-top: 50px;
   margin-left: 50px;
+  margin-bottom: 50px;
   /* background-color: blue; */
 }
 .questions-list div{
   width: 600px;
   flex: 1 1 auto;
+}
+.answer_buttons {
+  display: flex;
+  gap: 15px;
+  
+}
+.button_ele {
+  flex: 1 1 1fr;
+  
+  border-radius: 5px;
+  min-height: 20px;
 }
